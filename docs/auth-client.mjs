@@ -4,7 +4,7 @@ export const PUBLIC_KEY = "sb_publishable_iSQO1ZdTmCnRHC_YxKb30A_x7rVRYr_";
 export const MCP_URL = SUPABASE_URL + "/functions/v1/whoop-mcp";
 
 export function validateAuthorizationId(value) {
-  if (!/^[A-Za-z0-9_-]{16,256}$/.test(value || "")) {
+  if (!/^[^/?#&\s]{1,512}$/.test(value || "")) {
     throw new Error("Invalid or expired authorization link. Start again from ChatGPT or Codex.");
   }
   return value;
